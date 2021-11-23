@@ -1,5 +1,6 @@
 import math
 import matplotlib.pyplot as plt
+import sys
 
 ###################################
 #PART1
@@ -127,3 +128,36 @@ for i in range(len(lamb)):
 g,q,B = KaufmanRoberts(5,4,b,rho)
 
 #print(rho,g,q,B)
+
+###################################
+#PART3
+
+file_path = 'out.txt'
+sys.stdout = open(file_path, "w") #for printing to a .txt file
+
+lambs = [1,3,7,11,16]
+betas = [1.5]*5
+Cells=5
+Channels=60
+
+
+# Mobile Voice Networks Cells
+
+for CellChansOne in range(1,Channels+1):
+    channels_one = CellChansOne #number of channels in cell 1
+    for CellChansTwo in range(1,(Channels+1)-channels_one):
+        channels_two = CellChansTwo #number of channels in cell 2
+        for CellChansThree in range(1,(Channels+1)-channels_one-channels_two):
+            channels_three = CellChansThree # number of channels in cell 3
+            for CellChansFour in range(1,(Channels+1)-channels_one-channels_two-channels_three):
+                channels_four = CellChansFour # number of channels in cell 4
+                channels_five = Channels - channels_one -channels_two - channels_three - channels_four
+                if channels_five ==0:
+                    continue
+                #print(channels_one, channels_two, channels_three, channels_four, channels_five)
+                
+                
+                        
+
+         
+                
