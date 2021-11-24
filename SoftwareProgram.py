@@ -105,19 +105,17 @@ def KaufmanRoberts(C,K,b,rho):
         q.append(g[c]/G)
         #print(f"q({c}) is {q[c]}")
 
-
     B = [0]*K
     for k in range(K):
-        for g in range(K):
-            if C-b[k]+g > 4:
-                continue 
-            B[k] += q[(C-b[k]+g)]
+        c = C - b[k] + 1
+        for i in range(c, C+1):
+            B[k] += q[i]
         print(f"B({k}) is {round(B[k]*100,2)}%")
 
     return g,q,B
 
 
-lamb = [0.25, 0.007*0.7, 0.002*0.2, 0.001*0.1]
+lamb = [0.25, 0.007, 0.002, 0.001]
 mu = [1/4, 1/20, 1/20, 1/20]
 b=[1,3,4,5]
 rho = []
